@@ -9,33 +9,30 @@
 		<div class="col-md-4">
 			<h2> Generate Password</h2>					
 			<div class="form-group">
-				<input type="password" id="password" class="form-control" placeholder="Click on the Generate">
-				<input type="checkbox" onclick="showPassword()">Show Password	
+				<input type="text" id="password" class="form-control" placeholder="Click on the Generate">
 			</div>								
 			<div class="form-group">
 				<button type="button" class="btn btn-primary" onclick="autogeneratePassword()">Generate</button>				
-			</div>			
+				<button type="button" class="btn btn-primary" onclick="reset()">Clear</button>				
+			</div>					
 		</div>		
 	</div>
 </body>
 <script> 
-	function autogeneratePassword() 
+	function autogeneratePassword() 	
 	{		
 		var pass = '';
-		var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'+'abcdefghijklmnopqrstuvwxyz'+'0123456789'+'@#$!^&(=+-*))%';              
+		var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'+'abcdefghijklmnopqrstuvwxyz'+'0123456789'+'@#$!^&(/=\+-))*%';              
 		for (let i = 1; i <= 8; i++) {
 			var char = Math.floor(Math.random()* str.length + 1);                  
 			pass += str.charAt(char);
-		}         				
+		}   			
 		document.getElementById("password").value = pass;
-	}          
-	function showPassword() 
+	}      
+	function reset() 	
 	{		
-		pass = document.getElementById("password");
-		if(pass.type === password)
-			pass.type = text;
-		else 
-			pass.type = password;
-	}          	
+		document.getElementById("password").value = '';
+	}      
+
 </script>
 </html>
